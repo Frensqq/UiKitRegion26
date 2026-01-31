@@ -1,5 +1,7 @@
 package com.example.uikit.UI
 
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.snapshots.SnapshotApplyResult
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -31,4 +33,22 @@ val blueGradient = Brush.linearGradient(
         Color(0xff60A6FD)
     )
 )
+
+@Composable
+fun ColorButton() = ButtonDefaults.buttonColors(
+    containerColor = Accent,
+    disabledContainerColor = AccentInactive,
+    contentColor = White,
+    disabledContentColor = White
+)
+
+@Composable
+fun ColorButtonType2() = ButtonDefaults.buttonColors(
+    containerColor = White,
+    disabledContainerColor = White,
+    contentColor = Accent,
+    disabledContentColor = AccentInactive
+)
+
+
 

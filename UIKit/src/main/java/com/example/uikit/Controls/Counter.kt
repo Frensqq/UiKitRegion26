@@ -18,20 +18,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.uikit.R
+import com.example.uikit.UI.InputBg
 import com.example.uikit.UI.InputStr
 
 @Composable
 fun Counter(count:Int, countChange:(Int)->Unit){
 
     Row(Modifier.width(64.dp).height(32.dp)
-        .clip(RoundedCornerShape(8.dp))
+        .clip(RoundedCornerShape(8.dp)).background(InputBg)
         .padding(6.dp),
         horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
 
         Icon(
             painter = painterResource(R.drawable.icon_minus),
             contentDescription = null,
-            tint = if (count >0) Color(0xffB8C1CC) else Color(0xff939396),
+            tint = if (count <= 0) Color(0xffB8C1CC) else Color(0xff939396),
             modifier = Modifier.clickable{countChange(count-1)}
         )
 

@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.example.uikit.UI.Accent
 import com.example.uikit.UI.InputStr
 import com.example.uikit.UI.Success
 import com.example.uikit.UI.White
@@ -20,7 +21,7 @@ import com.example.uikit.UI.White
 @Composable
 fun Toggle(state: Boolean, onClick: ()->Unit){
 
-    Box(Modifier.width(48.dp).height(28.dp).clip(CircleShape).background(color = if(state) InputStr else Success).padding(2.dp),
+    Box(Modifier.width(48.dp).height(28.dp).clip(CircleShape).background(color = if(!state) InputStr else Accent).padding(2.dp),
         contentAlignment = if (!state) Alignment.CenterStart else Alignment.CenterEnd){
 
         Box(modifier = Modifier.size(24.dp).clip(CircleShape).background(White)
