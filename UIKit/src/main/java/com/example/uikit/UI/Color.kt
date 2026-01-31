@@ -1,6 +1,8 @@
 package com.example.uikit.UI
 
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.snapshots.SnapshotApplyResult
 import androidx.compose.ui.graphics.Brush
@@ -11,7 +13,7 @@ val Accent = Color(0xff00C07F)
 val AccentInactive = Color(0xff63D4B0)
 val Black = Color(0xff000000)
 val White = Color(0xffffffff)
-val Error = Color(0xffFD3535)
+val Error = Color(0x19FD3535)
 val Success = Color(0xff00B712)
 val InputBg = Color(0xffF5F5F9)
 val InputStr = Color(0xffEBEBEB)
@@ -48,6 +50,22 @@ fun ColorButtonType2() = ButtonDefaults.buttonColors(
     disabledContainerColor = White,
     contentColor = Accent,
     disabledContentColor = AccentInactive
+)
+
+@Composable
+fun ColorInput() = OutlinedTextFieldDefaults.colors(
+    cursorColor = Accent,
+    focusedBorderColor = Accent,
+    errorContainerColor = Color(0x19FD3535),
+    unfocusedTextColor = Black,
+    unfocusedPlaceholderColor = Placeholder,
+    unfocusedContainerColor = InputBg,
+    focusedTextColor = Black,
+    focusedPlaceholderColor = Placeholder,
+    focusedContainerColor = InputBg,
+    errorCursorColor = Accent,
+    errorBorderColor = Accent
+
 )
 
 
