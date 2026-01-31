@@ -62,6 +62,6 @@ fun Typography(): Type {
         CaptionSemibold = textStyle(R.font.semibold, 600,14,20),
         Caption2Regular = textStyle(R.font.regular, 400,12,16),
         Caption2Bold = textStyle(R.font.bold, 700,12,20),
-        
+
         )
 }
