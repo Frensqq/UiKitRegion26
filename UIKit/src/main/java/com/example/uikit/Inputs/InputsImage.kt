@@ -54,10 +54,10 @@ fun InputsImage(onClick: () -> Unit,painter: Painter?, state: Boolean){
         else{
             Box(Modifier.fillMaxSize().padding(start = 5.dp, end = 6.dp, bottom = 18.dp, top =22.dp )) {
                 Image(
-                    painter = painter?:painterResource(R.drawable.document),
+                    painter = painter?:painterResource(R.drawable.stock),
                     contentDescription = "Selected image",
                     modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillBounds
                 )
             }
 
@@ -71,7 +71,7 @@ fun InputsImage(onClick: () -> Unit,painter: Painter?, state: Boolean){
 fun PreviewInputsImage(){
 
     Column() {
-        InputsImage({}, null, false)
+        InputsImage({}, null, true)
 
     }
 
