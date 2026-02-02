@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +27,7 @@ fun PrimaryCard(titleText: String,stateButton: Boolean , onClick:() -> Unit, Typ
     var textbutton =  if (stateButton) "Добавить" else "Убрать"
 
     CardBackground {
-        Column(modifier = Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.SpaceBetween) {
+        Column(modifier = Modifier.height(138.dp).fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.SpaceBetween) {
 
             Text(titleText, style = Typography().HeadlineMedium, color = Black, maxLines = 2)
 
