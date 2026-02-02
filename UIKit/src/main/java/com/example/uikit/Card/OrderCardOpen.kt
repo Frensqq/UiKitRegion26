@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.uikit.Button.MediumButton
+import com.example.uikit.Components.Overlay
 import com.example.uikit.Components.SpacerH
 import com.example.uikit.Components.SpacerW
 import com.example.uikit.R
@@ -50,88 +51,91 @@ fun OrderClassOpen(
 
     content: @Composable () -> Unit
 ){
-Box( Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-    CardBackground {
 
-        Column(modifier = Modifier.height(534.dp)) {
-            Column(
-                modifier = Modifier.fillMaxWidth().height(133.dp).padding(16.dp),
-                verticalArrangement = Arrangement.SpaceBetween
-            ) {
+    Box( Modifier.fillMaxSize().background(Black.copy(alpha = 0.6f)).padding(20.dp), contentAlignment = Alignment.Center) {
 
-                Row(
-                    Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+        CardBackground {
+            Column(modifier = Modifier.height(534.dp)) {
+                Column(
+                    modifier = Modifier.fillMaxWidth().height(133.dp).padding(16.dp),
+                    verticalArrangement = Arrangement.SpaceBetween
                 ) {
 
-                    Text("Заказ № $numberOrder", style = Typography().Title3Semibold, color = Black)
+                    Row(
+                        Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
 
-                    Text("$cost ₽", style = Typography().HeadlineRegular, color = Black)
+                        Text("Заказ № $numberOrder", style = Typography().Title3Semibold, color = Black)
+
+                        Text("$cost ₽", style = Typography().HeadlineRegular, color = Black)
+
+                    }
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(date, style = Typography().CaptionRegular, color = Color(0xff939396))
+
+                        SpacerW(6)
+
+                        Box(Modifier.size(5.dp).clip(CircleShape).background(Color(0xff939396)))
+
+                        SpacerW(6)
+
+                        Text(status, style = Typography().CaptionRegular, color = Accent)
+                    }
+
+                    Row(modifier = Modifier.clickable { onClick() }) {
+                        Icon(
+                            painter = painterResource(R.drawable.icon_file_text),
+                            contentDescription = null, tint = Color(0xff939396)
+                        )
+                        SpacerW(8)
+
+                        Text(
+                            "Посмотреть",
+                            style = Typography().HeadlineRegular,
+                            color = Color(0xff939396)
+                        )
+                    }
 
                 }
 
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(date, style = Typography().CaptionRegular, color = Color(0xff939396))
 
-                    SpacerW(6)
-
-                    Box(Modifier.size(5.dp).clip(CircleShape).background(Color(0xff939396)))
-
-                    SpacerW(6)
-
-                    Text(status, style = Typography().CaptionRegular, color = Accent)
-                }
-
-                Row(modifier = Modifier.clickable { onClick() }) {
-                    Icon(
-                        painter = painterResource(R.drawable.icon_file_text),
-                        contentDescription = null, tint = Color(0xff939396)
-                    )
-                    SpacerW(8)
-
-                    Text(
-                        "Посмотреть",
-                        style = Typography().HeadlineRegular,
-                        color = Color(0xff939396)
-                    )
-                }
-
-            }
-
-
-            Box(Modifier.fillMaxWidth().height(1.dp).background(Color(0xffF4F4F4)))
-
-            Column(Modifier.fillMaxWidth().padding(16.dp)) {
-
-                Text("Описание", style = Typography().HeadlineMedium, color = Placeholder)
-                SpacerH(12)
-
-                content()
-
-                SpacerH(22)
                 Box(Modifier.fillMaxWidth().height(1.dp).background(Color(0xffF4F4F4)))
-                SpacerH(22)
 
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    MediumButton({onClickCheck()}, false, "Чек покупки", 0.5f)
-                    MediumButton({onClickHelp()}, false, "Помощь", 1f)
+                Column(Modifier.fillMaxWidth().padding(16.dp)) {
+
+                    Text("Описание", style = Typography().HeadlineMedium, color = Placeholder)
+                    SpacerH(12)
+
+                    content()
+
+                    SpacerH(22)
+                    Box(Modifier.fillMaxWidth().height(1.dp).background(Color(0xffF4F4F4)))
+                    SpacerH(22)
+
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        MediumButton({onClickCheck()}, false, "Чек покупки", 0.5f)
+                        MediumButton({onClickHelp()}, false, "Помощь", 1f)
+                    }
+                    SpacerH(16)
+                    MediumButton({onClickExit()}, true, "Закрыть", 1f)
+
+
+
                 }
-                SpacerH(16)
-                MediumButton({onClickExit()}, true, "Закрыть", 1f)
-
-
-
             }
         }
+
     }
-}
+
 }
 @Preview
 @Composable
 fun PreviewOrderClassOpen(){
 
 
-    Column(modifier = Modifier.fillMaxSize().padding(20.dp)) {
+    Column(modifier = Modifier.fillMaxSize()) {
         OrderClassOpen("123456","300", "26 апреля, 14:00", "Оплачен", {}, {},{},{},{})
     }
 
