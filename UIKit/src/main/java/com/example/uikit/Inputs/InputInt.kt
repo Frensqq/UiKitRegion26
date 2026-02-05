@@ -38,7 +38,6 @@ fun InputInt(
             if (newValue.length <= 1) {
                 val oldValue = value
                 onChangeValue(newValue)
-
                 // Вперед при вводе
                 if (newValue.isNotEmpty() && oldValue.isEmpty() && index < focuses.size - 1) {
                     CoroutineScope(Dispatchers.Main).launch {

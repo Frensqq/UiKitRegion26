@@ -34,10 +34,8 @@ fun SmallButton(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
         border = if (!state) BorderStroke(1.dp, Accent)
         else{BorderStroke(0.dp, Accent)}
-
-    )
-    {
-        Text(text, style = Typography().CaptionSemibold, color = if(state) White else Accent)
+    ) {
+        Text(text, style = Typography().CaptionSemibold)
     }
 
 }

@@ -19,21 +19,17 @@ import com.example.uikit.UI.Typography
 import com.example.uikit.UI.White
 
 @Composable
-fun BigButton(
-    text: String,
-    onClick:() -> Unit, state: Boolean
-){
-
-    Button(onClick = onClick,
+fun BigButton(text: String, onClick:() -> Unit, state: Boolean )
+{
+    Button(
+        onClick = onClick,
         modifier = Modifier.fillMaxWidth().height(56.dp),
         enabled = state,
         shape = RoundedCornerShape(10.dp),
         colors = ColorButton()
-    )
-    {
-        Text(text, style = Typography().Title3Semibold, color = White)
+    ) {
+        Text(text, style = Typography().Title3Semibold)
     }
-
 }
 
 @Preview

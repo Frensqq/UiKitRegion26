@@ -36,8 +36,8 @@ fun InputText(
     value: String,
     onChangeValue:(String) ->Unit,
     isPass: Boolean,
-    isError: Boolean,
-    placeholder: String
+    placeholder: String,
+    isError: Boolean = false,
 
 ){
 
@@ -70,8 +70,7 @@ fun InputText(
 fun PreviewInputText(){
 
     Column() {
-        InputText("sdsd",{}, true, false, "Введите имя")
-
+        InputText("",{}, true, "Введите имя")
     }
 
 }

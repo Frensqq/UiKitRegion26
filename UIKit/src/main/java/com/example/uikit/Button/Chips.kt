@@ -29,8 +29,8 @@ fun Chips(
     state: Boolean,
     text: String
 ){
-
-    Button(onClick = onClick,
+    Button(
+        onClick = onClick,
         modifier = Modifier.widthIn(126.dp).height(48.dp),
         shape = RoundedCornerShape(10.dp),
         colors = if (state) ColorButton() else
@@ -41,7 +41,7 @@ fun Chips(
         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp),
     )
     {
-        Text(text, style = Typography().TextMedium, color = if(state) White else Description)
+        Text(text, style = Typography().TextMedium)
     }
 
 }

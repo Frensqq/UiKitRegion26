@@ -36,7 +36,6 @@ fun Search(
     placeholder: String
 
 ){
-
     var focus by remember { mutableStateOf(false) }
 
     OutlinedTextField(

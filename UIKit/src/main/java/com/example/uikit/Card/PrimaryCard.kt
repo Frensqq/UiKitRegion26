@@ -19,17 +19,16 @@ import androidx.compose.ui.unit.dp
 import com.example.uikit.Button.SmallButton
 import com.example.uikit.Components.SpacerH
 import com.example.uikit.UI.Black
+import com.example.uikit.UI.Placeholder
 import com.example.uikit.UI.Typography
 
 @Composable
 fun PrimaryCard(titleText: String,stateButton: Boolean , onClick:() -> Unit, Type: String, cost: String){
 
-    var textbutton =  if (stateButton) "Добавить" else "Убрать"
-
     CardBackground {
         Column(modifier = Modifier.height(138.dp).fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.SpaceBetween) {
 
-            Text(titleText, style = Typography().HeadlineMedium, color = Black, maxLines = 2)
+            Text(titleText, style = Typography().HeadlineMedium)
 
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Bottom) {
@@ -38,12 +37,13 @@ fun PrimaryCard(titleText: String,stateButton: Boolean , onClick:() -> Unit, Typ
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     SpacerH(16)
-                    Text(Type, style = Typography().CaptionSemibold, color = Color(0xff939396))
+                    Text(Type, style = Typography().CaptionSemibold, color = Placeholder)
 
-                    Text("$cost ₽", style = Typography().Title3Semibold, color = Black)
+                    Text("$cost ₽", style = Typography().Title3Semibold)
                 }
 
-                SmallButton(textbutton, onClick,stateButton )
+                SmallButton( if (stateButton) "Добавить" else "Убрать"
+                    , onClick,stateButton )
             }
 
         }

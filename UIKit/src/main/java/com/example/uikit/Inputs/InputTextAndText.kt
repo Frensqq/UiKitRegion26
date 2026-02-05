@@ -23,7 +23,7 @@ fun InputTextAndText(value: String,
                 color = Color(0xff939396))
             SpacerH(6)
         }
-        InputText(value, onChangeValue, isPass, isError, placeholder)
+        InputText(value, onChangeValue, isPass, placeholder, isError)
         if (!errorText.isNullOrEmpty() && isError){
             SpacerH(8)
             Text(errorText, style = Typography().CaptionRegular,
